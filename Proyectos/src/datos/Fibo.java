@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class Fibo extends JFrame {
 
@@ -32,6 +33,8 @@ public class Fibo extends JFrame {
 	 * Create the frame.
 	 */
 	public Fibo() {
+		setTitle("Fibonacci");
+		setForeground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -44,7 +47,7 @@ public class Fibo extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Numero de Consulta");
-		lblNewLabel_1.setBounds(10, 42, 115, 14);
+		lblNewLabel_1.setBounds(10, 42, 155, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Resultado");
@@ -52,13 +55,13 @@ public class Fibo extends JFrame {
 		contentPane.add(lblNewLabel_2);
 		
 		txtNumero = new JTextField();
-		txtNumero.setBounds(150, 41, 96, 20);
+		txtNumero.setBounds(189, 41, 96, 20);
 		contentPane.add(txtNumero);
 		txtNumero.setColumns(10);
 		
 		txtResultado = new JTextField();
 		txtResultado.setEditable(false);
-		txtResultado.setBounds(150, 64, 96, 20);
+		txtResultado.setBounds(189, 64, 96, 20);
 		contentPane.add(txtResultado);
 		txtResultado.setColumns(10);
 		
@@ -80,11 +83,30 @@ public class Fibo extends JFrame {
 				txtResultado.setText(Integer.toString(c));
 				
 			}
-			void Borrar() {
-				
+			
+		});
+		btnConsultar.setBounds(81, 152, 125, 23);
+		contentPane.add(btnConsultar);
+		
+		JButton btnLimpiar = new JButton("Limpiar");
+		btnLimpiar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				txtResultado.setText("");
+				txtNumero.setText("");
 			}
 		});
-		btnConsultar.setBounds(117, 152, 89, 23);
-		contentPane.add(btnConsultar);
+		btnLimpiar.setBounds(242, 152, 125, 23);
+		contentPane.add(btnLimpiar);
+		
+		JButton btnSalir = new JButton("Salir");
+		btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.exit(0);
+			}
+			
+		});
+		
+		btnSalir.setBounds(175, 208, 89, 23);
+		contentPane.add(btnSalir);
 	}
 }
